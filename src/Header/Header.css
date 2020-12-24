@@ -40,6 +40,7 @@
 .header__nav {
 	display: flex;
 	justify-content: space-evenly;
+	margin: 2%;
 }
 
 .header__option {
@@ -60,7 +61,17 @@
 }
 
 .header__optionBasket {
+	margin-top: 20%;
 	display: flex;
 	align-items: center;
 	color: white;
+}
+
+.header__basketCount {
+	margin-left: 10px;
+}
+
+a {
+	color: white;
+	text-decoration: none;
 }

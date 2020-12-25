@@ -13,14 +13,14 @@ function Home() {
 				/>
 				<div className="home__row">
 					<Product
-						id="121212"
+						id="11"
 						title="Mast Headset"
 						rating={5}
 						pricing={55.69}
 						image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
 					/>
 					<Product
-						id="12121213"
+						id="12"
 						title="Thik Thaak Headset"
 						rating={2}
 						pricing={5.69}

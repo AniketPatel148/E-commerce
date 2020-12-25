@@ -16,6 +16,23 @@ const reducer = (state, action) => {
 				basket: [...state.basket, action.item],
 			};
 
+		case "REMOVE_FROM_BASKET":
+			const productIndex = state.basket.findIndex(
+				(item) => item.id === action.id
+			);
+
+			let newBasket = [...state.basket];
+
+			if (productIndex >= 0) {
+				newBasket.splice(productIndex, 1);
+			} else {
+				console.warn("You Moron! there's no such product in your basket");
+			}
+			return {
+				...state,
+				basket: newBasket,
+			};
+
 		default:
 			return state;
 	}

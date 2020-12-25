@@ -1,0 +1,17 @@
+.login {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	align-items: center;
+}
+.login__logo {
+	object-fit: contain;
+	margin: 20px auto;
+	width: 100px;
+}
+
+.login__signInButton {
+}
+
+.login__registerButton {
+}

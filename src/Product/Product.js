@@ -3,9 +3,7 @@ import { useStateValue } from "../ContextApi/StateProvider";
 import "./Product.css";
 
 function Product({ id, title, pricing, rating, image }) {
-	const [state, dispatch] = useStateValue();
-
-	console.log(state.basket);
+	const [{}, dispatch] = useStateValue();
 
 	const addToBasket = () => {
 		dispatch({

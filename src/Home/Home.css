@@ -14,9 +14,9 @@
 }
 
 .home__image {
-	width: 100%;
+	width: fit-content;
 	/* height: 100%; */
 	z-index: -1;
 	margin-bottom: -175px;
-	mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+	mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
 }

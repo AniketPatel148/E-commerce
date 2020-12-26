@@ -1,7 +1,9 @@
 /* eslint-disable default-case */
+import { useEffect } from "react";
 export const initialState = {
 	basket: [],
 	user: null,
+	purchaseHistory: [],
 };
 
 export const getBasketCost = (basket) => {
@@ -12,9 +14,11 @@ export const getBasketCost = (basket) => {
 const reducer = (state, action) => {
 	switch (action.type) {
 		case "ADD_TO_BASKET":
+			console.log("executed");
 			return {
 				...state,
 				basket: [...state.basket, action.item],
+				purchaseHistory: [...state.purchaseHistory, action.item],
 			};
 
 		case "REMOVE_FROM_BASKET":

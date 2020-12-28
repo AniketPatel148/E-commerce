@@ -8,6 +8,7 @@ import Login from "./Register/Login";
 import { useStateValue } from "./ContextApi/StateProvider";
 import { useEffect } from "react";
 import { auth } from "./firebase";
+import Payment from "./Payment/Payment";
 
 function App() {
 	const [{}, dispatch] = useStateValue();
@@ -39,6 +40,10 @@ function App() {
 					<Route path="/checkout">
 						<Header />
 						<Checkout />
+					</Route>
+					<Route path="/payment">
+						<Header />
+						<Payment />
 					</Route>
 					<Route path="/">
 						<Header />

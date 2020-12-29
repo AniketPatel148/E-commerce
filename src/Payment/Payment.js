@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
 import "./Payment.css";
+import CurrencyFormat from "react-currency-format";
+import { getBasketCost } from "../ContextApi/Reducer/Reducer";
 
 function Payment() {
 	const [{ basket, user }, dispatch] = useStateValue();
@@ -14,6 +16,9 @@ function Payment() {
 
 	const [error, setError] = useState(null);
 	const [disabled, setDisabled] = useState(true);
+
+	const [processing, setProcessing] = useState(true);
+	const [succeeded, setSuceeded] = useState("");
 
 	const handleSubmit = (e) => {};
 
@@ -63,6 +68,20 @@ function Payment() {
 					<div className="payment__details">
 						<form onSubmit={handleSubmit}>
 							<CardElement onChange={handleChange} />
+							<div className="payment__priceCOntainer">
+								<CurrencyFormat
+									renderText={(value) => <h3>Order total: {value}</h3>}
+									decimalScale={2}
+									value={getBasketCost(basket)}
+									displayType={"text"}
+									thousandSeparator={true}
+									prefix={"₹"}
+								/>
+								<button disabled={processing || disabled || succeeded}>
+									{processing ? <p>processing</p> : "Buy now"}
+								</button>
+							</div>
+							{error && <div>{error}</div>}
 						</form>
 					</div>
 				</div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "../Axios/Axios";
 import CheckoutProduct from "../Checkout/CheckoutProducts/CheckoutProduct";
 import { useStateValue } from "../ContextApi/StateProvider";
 import { Link, useHistory } from "react-router-dom";
@@ -19,7 +19,7 @@ function Payment() {
 	const [error, setError] = useState(null);
 	const [disabled, setDisabled] = useState(true);
 
-	const [processing, setProcessing] = useState(true);
+	const [processing, setProcessing] = useState(false);
 	const [succeeded, setSuceeded] = useState("");
 	const [clientSecret, setClientSecret] = useState("");
 
@@ -27,13 +27,15 @@ function Payment() {
 		const getClientSecret = async () => {
 			const response = await axios({
 				method: "post",
-				url: `/payment/create?total=${getBasketCost(basket) * 100}`,
+				url: `/payments/create?total=${getBasketCost(basket) * 100}`,
 			});
 			setClientSecret(response.data.clientSecret);
 		};
 
 		getClientSecret();
 	}, [basket]);
+
+	console.log("Client secret is >>", clientSecret);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -49,6 +51,10 @@ function Payment() {
 				setSuceeded(true);
 				setError(null);
 				setProcessing(false);
+
+				dispatch({
+					type: "EMPTY_BASKET",
+				});
 
 				history.replace("/orders");
 			});

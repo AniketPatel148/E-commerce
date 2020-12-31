@@ -117,7 +117,7 @@ function Payment() {
 					<div className="payment__details">
 						<form onSubmit={handleSubmit}>
 							<CardElement onChange={handleChange} />
-							<div className="payment__priceCOntainer">
+							<div className="payment__priceContainer">
 								<CurrencyFormat
 									renderText={(value) => <h3>Order total: {value}</h3>}
 									decimalScale={2}
